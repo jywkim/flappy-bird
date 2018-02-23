@@ -46,7 +46,7 @@ states = {
 bird = {
 
   x: 80,
-  y: 100,
+  y: 0,
   frame: 0,
   velocity: 0,
   animation: [0, 1, 2, 1],
@@ -62,6 +62,11 @@ bird = {
     var n = currentstate === states.Splash ? 10 : 5;
     this.frame += frames % n === 0 ? 1 : 0;
     this.frame %= this.animation.length;
+
+    if (currentstate === states.Splash) {
+      this.y = height - 280 + 5*Math.cos(frames/10);
+      this.rotation = 0;
+    }
   },
 
   draw: function(ctx) {
