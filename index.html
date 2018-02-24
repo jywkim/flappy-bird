@@ -77,6 +77,12 @@ bird = {
         }
         this.velocity = this._jump;
       }
+      if (this.velocity >= this._jump) {
+        this.frame = 1;
+        this.rotation = Math.min(Math.PI/2, this.rotation + 0.3);
+      } else {
+        this.rotation = -0.3;
+      }
     }
   },
 
