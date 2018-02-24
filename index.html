@@ -170,7 +170,9 @@ function run() {
 function update() {
   frames++;
 
-  fgpos = (fgpos - 2) % 14;
+  if (currentstate !== states.Score) {
+    fgpos = (fgpos - 2) % 14;
+  }
 
   bird.update();
   pipes.update();
