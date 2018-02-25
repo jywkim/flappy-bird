@@ -106,7 +106,7 @@ pipes = {
   _pipes: [],
 
   reset: function() {
-
+    this._pipes = [];
   },
 
   update: function() {
@@ -171,6 +171,15 @@ function onpress(evt) {
       break;
 
     case states.Score:
+      var mx = evt.offsetX, my = evt.offsetY;
+
+      if (okbtn.x < mx && mx < okbtn.x + okbtn.width &&
+          okbtn.y < my && my < okbtn.y + okbtn.height
+      ) {
+          pipes.reset();
+          currentstate = states.Splash;
+          score = 0;
+      }
       break;
 
   }
