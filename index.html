@@ -243,6 +243,8 @@ function update() {
 
   if (currentstate !== states.Score) {
     fgpos = (fgpos - 2) % 14;
+  } else {
+    best = Math.max(best, score);
   }
   if (currentstate === states.Game) {
     pipes.update();
